@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Of Thumbnail Full Course</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imgs/icon.png">
+</head>
+
+<body>
+    <div class="nav">
+        <div>
+            <section>
+                <img src="/imgs/icon.png" alt="Logo Icon">
+                <h2>Secret <span style="color: rgb(244, 134, 38);">Courses</span></h2>
+            </section>
+            <section>
+                <a href="my-purchases.html">
+                    <!-- <a href="my-purchases.html"><p>My Purchases</p></a> -->
+                </a>
+            </section>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <span><img src="/imgs/artofthumb.jpg" alt=""></span>
+            <h1>THE ART OF THUMBNAIL</h1>
+            <h4>Total Chapters: 29</h4>
+            <h3>Course Description:</h3>
+            <p>
+                Unlock the secrets to creating eye-catching thumbnails that boost your YouTube channel’s visibility and
+                engagement with our comprehensive course, The Art of Thumbnail. In this course, you’ll learn how to
+                craft compelling visuals that attract viewers and increase your click-through rates. <br>
+
+                What You’ll Learn: <br>
+
+                Thumbnail Design Principles: Understand the core principles of effective thumbnail design, including
+                color theory, contrast, and visual hierarchy.Tools and Techniques: Gain hands-on experience with popular
+                design tools such as Adobe Photoshop, Canva, and others to create stunning thumbnails.Crafting
+                Click-Worthy Designs: Learn how to use text, imagery, and branding to create thumbnails that stand out
+                and grab attention.A/B Testing: Discover how to test different thumbnails to find out what resonates
+                best with your audience.Analyzing Performance: Use YouTube Analytics to assess the impact of your
+                thumbnails on video performance and viewer engagement.
+            </p>
+            <button id="btn">Buy Now</button>
+        </div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        console.log(id);
+        var btn = document.getElementById('btn');
+
+        if (!id) {
+            console.log('Purchase Do Not Detected');
+            var localId = localStorage.getItem('secret-courses:art-of-thumbnail-purchase-id');
+            if (!localId) {
+                console.log("Purchase Do Not Detected In Storage");
+                btn.innerHTML = "Buy Now";
+                btn.addEventListener('click', ()=>{
+                    window.location.href = "https://pages.razorpay.com/pl_Osh3JKqbz5NOoJ/view"
+                })
+            } else {
+                console.log('Purchase Detected In Localstorage');
+                console.log(localId)
+                btn.innerHTML = "Visit Now";
+                btn.addEventListener('click', () => {
+                    window.location.href = "https://youtube.com/playlist?list=PLWndAdsAYL9E0uVAouH329VHT2HxTJnug&si=nXLmJ1t0_eAwT4LZ"
+                })
+            }
+        } else {
+            console.log('Purchase Detected And Added In localstorage');
+            localStorage.setItem('secret-courses:art-of-thumbnail-purchase-id', id);
+            btn.innerHTML = "Visit Now";
+            btn.addEventListener('click', () => {
+                window.location.href = "https://youtube.com/playlist?list=PLWndAdsAYL9E0uVAouH329VHT2HxTJnug&si=nXLmJ1t0_eAwT4LZ"
+            })
+        }
+    </script>
+</body>
+
+</html>
